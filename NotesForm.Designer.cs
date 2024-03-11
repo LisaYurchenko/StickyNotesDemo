@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotesForm));
             notesListView = new ListView();
+            colTitle = new ColumnHeader();
+            colDateTime = new ColumnHeader();
             pictureBoxAdd = new PictureBox();
             pictureBoxMore = new PictureBox();
             pictureBoxClose = new PictureBox();
@@ -42,14 +44,26 @@
             // 
             // notesListView
             // 
+            notesListView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            notesListView.BorderStyle = BorderStyle.None;
+            notesListView.Columns.AddRange(new ColumnHeader[] { colTitle, colDateTime });
             tableLayoutPanel.SetColumnSpan(notesListView, 3);
-            notesListView.Dock = DockStyle.Fill;
-            notesListView.Location = new Point(0, 44);
-            notesListView.Margin = new Padding(0);
+            notesListView.HeaderStyle = ColumnHeaderStyle.None;
+            notesListView.Location = new Point(10, 54);
+            notesListView.Margin = new Padding(10, 10, 0, 0);
             notesListView.Name = "notesListView";
-            notesListView.Size = new Size(560, 397);
+            notesListView.Size = new Size(434, 381);
             notesListView.TabIndex = 0;
             notesListView.UseCompatibleStateImageBehavior = false;
+            notesListView.View = View.Details;
+            // 
+            // colTitle
+            // 
+            colTitle.Text = "";
+            // 
+            // colDateTime
+            // 
+            colDateTime.Text = "";
             // 
             // pictureBoxAdd
             // 
@@ -69,7 +83,7 @@
             // pictureBoxMore
             // 
             pictureBoxMore.Image = (Image)resources.GetObject("pictureBoxMore.Image");
-            pictureBoxMore.Location = new Point(475, 3);
+            pictureBoxMore.Location = new Point(359, 3);
             pictureBoxMore.Name = "pictureBoxMore";
             pictureBoxMore.Size = new Size(38, 38);
             pictureBoxMore.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -80,7 +94,7 @@
             // pictureBoxClose
             // 
             pictureBoxClose.Image = (Image)resources.GetObject("pictureBoxClose.Image");
-            pictureBoxClose.Location = new Point(519, 3);
+            pictureBoxClose.Location = new Point(403, 3);
             pictureBoxClose.Name = "pictureBoxClose";
             pictureBoxClose.Size = new Size(38, 38);
             pictureBoxClose.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -106,14 +120,17 @@
             tableLayoutPanel.RowStyles.Add(new RowStyle());
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel.Size = new Size(560, 441);
+            tableLayoutPanel.Size = new Size(444, 435);
             tableLayoutPanel.TabIndex = 7;
+            tableLayoutPanel.MouseDown += NotesForm_MouseDown;
+            tableLayoutPanel.MouseMove += NotesForm_MouseMove;
+            tableLayoutPanel.MouseUp += NotesForm_MouseUp;
             // 
             // NotesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(559, 460);
+            ClientSize = new Size(446, 449);
             Controls.Add(tableLayoutPanel);
             Name = "NotesForm";
             Text = "NotesForm";
@@ -134,5 +151,7 @@
         private PictureBox pictureBoxMore;
         private PictureBox pictureBoxClose;
         private TableLayoutPanel tableLayoutPanel;
+        private ColumnHeader colTitle;
+        private ColumnHeader colDateTime;
     }
 }

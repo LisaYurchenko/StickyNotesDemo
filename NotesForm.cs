@@ -16,6 +16,7 @@
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.LightYellow;
+            notesListView.BackColor = Color.LightYellow;
             this.ResizeRedraw = true;
         }
         protected override void WndProc(ref Message m)
@@ -44,9 +45,6 @@
             var content = noteDetailsForm.Content;
             var creationDate = noteDetailsForm.CreationDate.ToString();
 
-            notesListView.View = View.Details;
-            notesListView.Columns.Add("colTitle");
-            notesListView.Columns.Add("colDateTime");
             var noteListItem = new ListViewItem(new string[] { title, creationDate });
             notesListView.Items.Add(noteListItem);
         }
@@ -59,8 +57,7 @@
             if (e.Button == MouseButtons.Left)
             {
                 xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
-                yOffset = -e.Y - SystemInformation.CaptionHeight -
-                SystemInformation.FrameBorderSize.Height;
+                yOffset = -e.Y;
                 mouseOffset = new Point(xOffset, yOffset);
                 isMouseDown = true;
             }
