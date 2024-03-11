@@ -1,31 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace StickyNotesDemo
+﻿namespace StickyNotesDemo
 {
     public partial class NoteDetailsForm : Form
     {
-        public string Title { get; set; }
+        public NoteDetailsForm()
+        {
+            InitializeComponent();
+        }
+        public string Title
+        {
+            get; set;
+        }
         public string Content
         {
             get; set;
         }
-        public NoteDetailsForm()
+        public DateTime CreationDate
         {
-            InitializeComponent();
+            get;
+            set;
         }
 
         private void NoteDetailsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Title = titleTextBox.Text;
             Content = contentTextEdit.Text;
+            CreationDate = DateTime.Now;
         }
     }
 }
