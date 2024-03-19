@@ -98,7 +98,7 @@
             // 
             // pictureBoxClose
             // 
-            pictureBoxClose.Image = (Image)resources.GetObject("pictureBoxClose.Image");
+            pictureBoxClose.ErrorImage = (Image)resources.GetObject("pictureBoxClose.ErrorImage");
             pictureBoxClose.Location = new Point(401, 3);
             pictureBoxClose.Name = "pictureBoxClose";
             pictureBoxClose.Size = new Size(38, 38);
