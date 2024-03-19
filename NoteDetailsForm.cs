@@ -26,5 +26,10 @@
             Content = contentTextEdit.Text;
             CreationDate = DateTime.Now;
         }
+
+        private void NoteDetailsForm_Shown(object sender, EventArgs e)
+        {
+            titleTextBox.Text = Title;
+        }
     }
 }

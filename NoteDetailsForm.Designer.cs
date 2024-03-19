@@ -57,6 +57,7 @@
             Name = "NoteDetailsForm";
             Text = "NoteDetailsForm";
             FormClosed += NoteDetailsForm_FormClosed;
+            Shown += NoteDetailsForm_Shown;
             ResumeLayout(false);
             PerformLayout();
         }
