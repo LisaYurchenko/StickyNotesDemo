@@ -1,35 +1,37 @@
-﻿namespace StickyNotesDemo
+﻿using StickyNotesDemo.Models;
+
+namespace StickyNotesDemo
 {
-    public partial class NoteDetailsForm : Form
+    public partial class NoteDetailsForm : BaseForm
     {
-        public NoteDetailsForm()
+        private Note _note;
+        public NoteDetailsForm() : base()
         {
             InitializeComponent();
         }
-        public string Title
+
+        internal Note Note
         {
-            get; set;
-        }
-        public string Content
-        {
-            get; set;
-        }
-        public DateTime CreationDate
-        {
-            get;
-            set;
+            get
+            {
+                if (_note == null)
+                {
+                    _note = new Note("", "");
+                }
+                return _note;
+            }
         }
 
         private void NoteDetailsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Title = titleTextBox.Text;
-            Content = contentTextEdit.Text;
-            CreationDate = DateTime.Now;
+            _note = new Note(titleTextBox.Text, contentTextEdit.Text);
+            var creationDate = _note.CreationDate;
         }
 
         private void NoteDetailsForm_Shown(object sender, EventArgs e)
         {
-            titleTextBox.Text = Title;
+            titleTextBox.Text = Note.Title;
+            contentTextEdit.Text = Note.Content;
         }
     }
 }
