@@ -1,10 +1,12 @@
-﻿namespace StickyNotesDemo
-{
-    public partial class NotesForm : BaseForm
-    {
-        List<string> Items = new List<string>();
+﻿using StickyNotesDemo.Models;
 
-        public NotesForm()
+namespace StickyNotesDemo
+{
+    public partial class NoteForm : BaseForm
+    {
+        List<Note> Items = new List<Note>();
+
+        public NoteForm()
         {
             InitializeComponent();
             notesListView.BackColor = Color.LightYellow;
@@ -15,14 +17,10 @@
             NoteDetailsForm noteDetailsForm = new NoteDetailsForm();
             noteDetailsForm.ShowDialog();
 
-            var title = noteDetailsForm.Note.Title;
-            var content = noteDetailsForm.Note.Content;
-            var creationDate = noteDetailsForm.Note.CreationDate.ToString();
-
-            notesListView.View = View.Details;
-            var noteListItem = new ListViewItem(new string[] { title, creationDate });
+            var note = noteDetailsForm.Note;
+            var noteListItem = new ListViewItem(new string[] { note.Title, note.CreationDate.ToString() });
             notesListView.Items.Add(noteListItem);
-            Items.Add(title);
+            Items.Add(note);
             ResizeColumnHeaders();
         }
 
@@ -61,10 +59,22 @@
         private void notesListView_DoubleClick(object sender, EventArgs e)
         {
             var selectedItem = notesListView.SelectedItems[0];
-            var showWnd = new NoteDetailsForm();
-            showWnd.Note.Title = selectedItem.Text;
+            var index = selectedItem.Index;
+            var note = Items.FirstOrDefault(x => x.Title.Equals(selectedItem.Text));
+            if (note == null)
+            {
+                return;
+            }
+            var showWnd = new NoteDetailsForm
+            {
+                Note = note
+            };
             showWnd.ShowDialog();
-            selectedItem.Text = showWnd.Note.Title;
+            note.Title = showWnd.Note.Title;
+            note.Content = showWnd.Note.Content;
+
+            notesListView.Items.RemoveAt(index);
+            notesListView.Items.Insert(index, new ListViewItem(new string[] { note.Title, note.CreationDate.ToString() }));
             notesListView.Refresh();
         }
 
@@ -74,9 +84,9 @@
 
             foreach (var item in Items)
             {
-                if (item.Contains(textBoxSearch.Text))
+                if (item.Title.Contains(textBoxSearch.Text))
                 {
-                    notesListView.Items.Add(item);
+                    notesListView.Items.Add(new ListViewItem(new string[] { item.Title, item.CreationDate.ToString() }));
                 }
             }
         }

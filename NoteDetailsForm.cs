@@ -20,6 +20,10 @@ namespace StickyNotesDemo
                 }
                 return _note;
             }
+            set
+            {
+                _note = value;
+            }
         }
 
         private void NoteDetailsForm_FormClosed(object sender, FormClosedEventArgs e)

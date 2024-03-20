@@ -1,6 +1,6 @@
 ﻿namespace StickyNotesDemo
 {
-    partial class NotesForm : BaseForm
+    partial class NoteForm : BaseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotesForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteForm));
             notesListView = new ListView();
             colTitle = new ColumnHeader();
             colDateTime = new ColumnHeader();
