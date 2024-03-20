@@ -3,7 +3,7 @@
     internal class Note
     {
         private DateTime _creationDate;
-        internal Note(string title, string content)
+        internal Note(string title = "", string content = "")
         {
             Title = title;
             Content = content;
@@ -16,6 +16,7 @@
         {
             get; set;
         }
+
         internal DateTime CreationDate
         {
             get

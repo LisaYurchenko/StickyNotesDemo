@@ -45,7 +45,7 @@
             // pictureBoxClose
             // 
             pictureBoxClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pictureBoxClose.Location = new Point(615, 3);
+            pictureBoxClose.Location = new Point(322, 3);
             // 
             // notesListView
             // 
@@ -54,14 +54,14 @@
             notesListView.Columns.AddRange(new ColumnHeader[] { colTitle, colDateTime });
             tableLayoutPanel.SetColumnSpan(notesListView, 3);
             notesListView.HeaderStyle = ColumnHeaderStyle.None;
-            notesListView.Location = new Point(10, 74);
-            notesListView.Margin = new Padding(10, 10, 0, 0);
+            notesListView.Location = new Point(10, 76);
+            notesListView.Margin = new Padding(10, 20, 10, 0);
             notesListView.Name = "notesListView";
-            notesListView.Size = new Size(646, 471);
+            notesListView.Size = new Size(342, 346);
             notesListView.TabIndex = 0;
             notesListView.UseCompatibleStateImageBehavior = false;
             notesListView.View = View.Details;
-            notesListView.DoubleClick += notesListView_DoubleClick;
+            notesListView.DoubleClick += NotesListView_DoubleClick;
             // 
             // colTitle
             // 
@@ -79,26 +79,28 @@
             pictureBoxAdd.BackColor = Color.Transparent;
             pictureBoxAdd.Image = (Image)resources.GetObject("pictureBoxAdd.Image");
             pictureBoxAdd.InitialImage = (Image)resources.GetObject("pictureBoxAdd.InitialImage");
-            pictureBoxAdd.Location = new Point(3, 3);
+            pictureBoxAdd.Location = new Point(10, 3);
+            pictureBoxAdd.Margin = new Padding(10, 3, 3, 3);
             pictureBoxAdd.Name = "pictureBoxAdd";
-            pictureBoxAdd.Size = new Size(38, 38);
+            pictureBoxAdd.Size = new Size(30, 30);
             pictureBoxAdd.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxAdd.TabIndex = 4;
             pictureBoxAdd.TabStop = false;
-            pictureBoxAdd.Click += pictureBoxAdd_Click;
-            pictureBoxAdd.MouseEnter += pictureBoxAdd_MouseEnter;
-            pictureBoxAdd.MouseLeave += pictureBoxAdd_MouseLeave;
+            pictureBoxAdd.Click += PictureBoxAdd_Click;
+            pictureBoxAdd.MouseEnter += PictureBoxAdd_MouseEnter;
+            pictureBoxAdd.MouseLeave += PictureBoxAdd_MouseLeave;
             // 
             // pictureBoxMore
             // 
             pictureBoxMore.Image = (Image)resources.GetObject("pictureBoxMore.Image");
-            pictureBoxMore.Location = new Point(571, 3);
+            pictureBoxMore.Location = new Point(279, 3);
+            pictureBoxMore.Margin = new Padding(3, 3, 10, 3);
             pictureBoxMore.Name = "pictureBoxMore";
-            pictureBoxMore.Size = new Size(38, 38);
+            pictureBoxMore.Size = new Size(30, 30);
             pictureBoxMore.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxMore.TabIndex = 5;
             pictureBoxMore.TabStop = false;
-            pictureBoxMore.Click += pictureBoxMore_Click;
+            pictureBoxMore.Click += PictureBoxMore_Click;
             // 
             // tableLayoutPanel
             // 
@@ -120,7 +122,7 @@
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel.Size = new Size(656, 545);
+            tableLayoutPanel.Size = new Size(362, 422);
             tableLayoutPanel.TabIndex = 7;
             tableLayoutPanel.Controls.SetChildIndex(textBoxSearch, 0);
             tableLayoutPanel.Controls.SetChildIndex(pictureBoxClose, 0);
@@ -130,23 +132,26 @@
             // 
             // textBoxSearch
             // 
+            textBoxSearch.BackColor = Color.WhiteSmoke;
             tableLayoutPanel.SetColumnSpan(textBoxSearch, 3);
             textBoxSearch.Dock = DockStyle.Fill;
-            textBoxSearch.Location = new Point(6, 50);
-            textBoxSearch.Margin = new Padding(6);
+            textBoxSearch.Location = new Point(10, 42);
+            textBoxSearch.Margin = new Padding(10, 6, 10, 6);
             textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.Size = new Size(644, 23);
+            textBoxSearch.Size = new Size(342, 23);
             textBoxSearch.TabIndex = 7;
-            textBoxSearch.TextChanged += textBoxSearch_TextChanged;
+            textBoxSearch.TextChanged += TextBoxSearch_TextChanged;
+            textBoxSearch.Enter += textBoxSearch_Enter;
+            textBoxSearch.Leave += textBoxSearch_Leave;
             // 
-            // NotesForm
+            // NoteForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(674, 573);
+            ClientSize = new Size(380, 450);
             Controls.Add(tableLayoutPanel);
-            MinimumSize = new Size(460, 480);
-            Name = "NotesForm";
+            MinimumSize = new Size(380, 450);
+            Name = "NoteForm";
             Text = "NotesForm";
             SizeChanged += NotesForm_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)pictureBoxClose).EndInit();

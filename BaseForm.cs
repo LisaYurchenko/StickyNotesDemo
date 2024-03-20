@@ -16,7 +16,9 @@
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, this.ClientSize.Width - 16, this.ClientSize.Height - 16, 16, 16);
+            ControlPaint.DrawSizeGrip(e.Graphics, BackColor, ClientSize.Width - 16, ClientSize.Height - 16, 16, 16);
+            Rectangle borderRectangle = ClientRectangle;
+            ControlPaint.DrawBorder3D(e.Graphics, borderRectangle, Border3DStyle.Flat);
         }
 
         protected override CreateParams CreateParams
@@ -80,7 +82,7 @@
 
         private void pictureBoxClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

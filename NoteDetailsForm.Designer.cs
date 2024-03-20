@@ -37,26 +37,37 @@
             // 
             // pictureBoxClose
             // 
-            pictureBoxClose.Location = new Point(407, 3);
+            pictureBoxClose.Location = new Point(236, 3);
             // 
             // titleTextBox
             // 
+            titleTextBox.BackColor = Color.WhiteSmoke;
+            titleTextBox.BorderStyle = BorderStyle.FixedSingle;
             tableLayoutPanel.SetColumnSpan(titleTextBox, 2);
             titleTextBox.Dock = DockStyle.Fill;
-            titleTextBox.Location = new Point(3, 47);
+            titleTextBox.Location = new Point(10, 42);
+            titleTextBox.Margin = new Padding(10, 6, 10, 3);
             titleTextBox.Name = "titleTextBox";
-            titleTextBox.Size = new Size(442, 23);
+            titleTextBox.Size = new Size(256, 23);
             titleTextBox.TabIndex = 0;
+            titleTextBox.Enter += TitleTextBox_Enter;
+            titleTextBox.Leave += TitleTextBox_Leave;
             // 
             // contentTextEdit
             // 
+            contentTextEdit.BackColor = Color.LightYellow;
+            contentTextEdit.BorderStyle = BorderStyle.None;
             tableLayoutPanel.SetColumnSpan(contentTextEdit, 2);
             contentTextEdit.Dock = DockStyle.Fill;
-            contentTextEdit.Location = new Point(3, 67);
+            contentTextEdit.ForeColor = Color.Gray;
+            contentTextEdit.Location = new Point(10, 76);
+            contentTextEdit.Margin = new Padding(10, 20, 10, 3);
             contentTextEdit.Name = "contentTextEdit";
-            contentTextEdit.Size = new Size(442, 363);
+            contentTextEdit.Size = new Size(256, 267);
             contentTextEdit.TabIndex = 1;
-            contentTextEdit.Text = "";
+            contentTextEdit.Text = "Please enter note content...";
+            contentTextEdit.Enter += ContentTextEdit_Enter;
+            contentTextEdit.Leave += ContentTextEdit_Leave;
             // 
             // tableLayoutPanel
             // 
@@ -74,7 +85,7 @@
             tableLayoutPanel.RowStyles.Add(new RowStyle());
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel.Size = new Size(448, 433);
+            tableLayoutPanel.Size = new Size(276, 346);
             tableLayoutPanel.TabIndex = 0;
             tableLayoutPanel.Controls.SetChildIndex(contentTextEdit, 0);
             tableLayoutPanel.Controls.SetChildIndex(titleTextBox, 0);
@@ -84,8 +95,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(472, 457);
+            ClientSize = new Size(300, 370);
             Controls.Add(tableLayoutPanel);
+            MinimumSize = new Size(300, 370);
             Name = "NoteDetailsForm";
             Text = "NoteDetailsForm";
             FormClosed += NoteDetailsForm_FormClosed;

@@ -37,8 +37,9 @@
             // 
             pictureBoxClose.Image = (Image)resources.GetObject("pictureBoxClose.Image");
             pictureBoxClose.Location = new Point(422, 12);
+            pictureBoxClose.Margin = new Padding(3, 3, 10, 3);
             pictureBoxClose.Name = "pictureBoxClose";
-            pictureBoxClose.Size = new Size(38, 38);
+            pictureBoxClose.Size = new Size(30, 30);
             pictureBoxClose.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxClose.TabIndex = 6;
             pictureBoxClose.TabStop = false;
@@ -49,7 +50,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightYellow;
-            ClientSize = new Size(472, 449);
+            ClientSize = new Size(466, 439);
             Controls.Add(pictureBoxClose);
             Name = "BaseForm";
             Text = "BaseForm";
