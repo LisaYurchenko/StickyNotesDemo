@@ -100,7 +100,6 @@
             pictureBoxMore.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxMore.TabIndex = 5;
             pictureBoxMore.TabStop = false;
-            pictureBoxMore.Click += PictureBoxMore_Click;
             // 
             // tableLayoutPanel
             // 
@@ -142,7 +141,6 @@
             textBoxSearch.TabIndex = 7;
             textBoxSearch.TextChanged += TextBoxSearch_TextChanged;
             textBoxSearch.Enter += textBoxSearch_Enter;
-            textBoxSearch.Leave += textBoxSearch_Leave;
             // 
             // NoteForm
             // 

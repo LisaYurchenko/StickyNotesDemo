@@ -2,11 +2,11 @@
 
 namespace StickyNotesDemo.Presenters
 {
-    public class NoteDetailsFormPresenter
+    public class NoteDetailsFormPresenter : INoteDetailsFormPresenter
     {
-        private NoteDetailsForm _view;
+        private INoteDetailsForm _view;
 
-        public NoteDetailsFormPresenter(NoteDetailsForm view)
+        public NoteDetailsFormPresenter(INoteDetailsForm view)
         {
             _view = view;
         }

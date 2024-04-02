@@ -2,12 +2,12 @@
 
 namespace StickyNotesDemo.Presenters
 {
-    public class NotesFormPresenter
+    public class NotesFormPresenter : INotesFormPresenter
     {
-        private readonly NoteForm _view;
-        private readonly NotesRepository _repository;
+        private readonly INoteForm _view;
+        private readonly INotesRepository _repository;
 
-        public NotesFormPresenter(NoteForm view, NotesRepository repository)
+        public NotesFormPresenter(INoteForm view, INotesRepository repository)
         {
             _view = view;
             _repository = repository;

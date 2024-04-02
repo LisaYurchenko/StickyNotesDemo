@@ -2,10 +2,10 @@
 
 namespace StickyNotesDemo
 {
-    public partial class NoteForm : BaseForm
+    public partial class NoteForm : BaseForm, INoteForm
     {
         private const string SearchPlaceholderText = "Search...";
-        public NotesFormPresenter NotesFormPresenter
+        public INotesFormPresenter NotesFormPresenter
         {
             private get;
             set;

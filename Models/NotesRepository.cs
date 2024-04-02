@@ -1,7 +1,7 @@
 ﻿
 namespace StickyNotesDemo.Models
 {
-    public class NotesRepository
+    public class NotesRepository : INotesRepository
     {
         private readonly List<Note> _notes = new();
 
@@ -38,7 +38,7 @@ namespace StickyNotesDemo.Models
             }
         }
 
-        internal List<Note> GetNotesByTitleContent(string text)
+        public List<Note> GetNotesByTitleContent(string text)
         {
             return _notes.Where(x => x.Title.Contains(text)).ToList();
         }

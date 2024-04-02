@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="StickyNotesDemo.Program" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StickyNotesDemo.BaseForm" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCAAAAAACABAgAAAACACAACIAAAAAAAAAAAUAEEAAA=</HashCode>
+      <FileName>Views\BaseForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StickyNotesDemo.NoteDetailsForm" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIikAiUQAgACBAAACASQAAAAAAABAAEAAAAA=</HashCode>
+      <FileName>Views\NoteDetailsForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="StickyNotesDemo.NoteForm" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAAACBAACAACEQICACIAAACEgAgAAkAUAAAAQAQAAA=</HashCode>
+      <FileName>Views\NotesForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="StickyNotesDemo.Models.Note" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAgAAAEAAAABAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Note.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StickyNotesDemo.Models.NotesRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYQAAAAAAAAAAAAAAAABAAAAAAAAEgAAgAAAAAAAAA=</HashCode>
+      <FileName>Models\NotesRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="StickyNotesDemo.Presenters.NoteDetailsFormPresenter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAQAACAAAAAAAAA=</HashCode>
+      <FileName>Presenters\NoteDetailsFormPresenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="StickyNotesDemo.Presenters.NotesFormPresenter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABABAAAAAEAAAEAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Presenters\NotesFormPresenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="StickyNotesDemo.Properties.Resources" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="StickyNotesDemo.INoteDetailsForm" Collapsed="true">
+    <Position X="5.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAEAAAAAAAAEAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\INoteDetailsForm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="StickyNotesDemo.INoteForm" Collapsed="true">
+    <Position X="8.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\INoteForm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="StickyNotesDemo.Models.INotesRepository" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAABAAAAAAAAEgAAgAAAAAAAAA=</HashCode>
+      <FileName>Models\INotesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="StickyNotesDemo.Presenters.INoteDetailsFormPresenter" Collapsed="true">
+    <Position X="7" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Presenters\INoteDetailsFormPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="StickyNotesDemo.Presenters.INotesFormPresenter" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAEAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presenters\INotesFormPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

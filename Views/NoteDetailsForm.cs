@@ -1,9 +1,8 @@
-﻿using StickyNotesDemo.Models;
-using StickyNotesDemo.Presenters;
+﻿using StickyNotesDemo.Presenters;
 
 namespace StickyNotesDemo
 {
-    public partial class NoteDetailsForm : BaseForm
+    public partial class NoteDetailsForm : BaseForm, INoteDetailsForm
     {
         private const string ContentPlaceholderText = "Please enter note content...";
         private const string TitlePlaceholderText = "Please enter note title...";
@@ -16,7 +15,7 @@ namespace StickyNotesDemo
         {
             get; private set;
         }
-        public NoteDetailsFormPresenter NoteDetailsFormPresenter
+        public INoteDetailsFormPresenter NoteDetailsFormPresenter
         {
             get;
             internal set;
@@ -83,6 +82,11 @@ namespace StickyNotesDemo
                 titleTextBox.Text = TitlePlaceholderText;
                 titleTextBox.ForeColor = Color.Gray;
             }
+        }
+
+        void INoteDetailsForm.ShowDialog()
+        {
+            ShowDialog();
         }
     }
 }
