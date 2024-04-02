@@ -1,3 +1,6 @@
+using StickyNotesDemo.Models;
+using StickyNotesDemo.Presenters;
+
 namespace StickyNotesDemo
 {
     internal static class Program
@@ -11,7 +14,15 @@ namespace StickyNotesDemo
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new NoteForm());
+
+            var notesRepository = new NotesRepository();
+            var mainView = new NoteForm();
+
+            // Poor Man's Dependency Injection/Pure Dependency Injection, Main() is the Composition Root.
+            // See https://github.com/mrts/winforms-mvp/issues/2.
+            var presenter = new NotesFormPresenter(mainView, notesRepository);
+            mainView.NotesFormPresenter = presenter;
+            Application.Run(mainView);
         }
     }
 }

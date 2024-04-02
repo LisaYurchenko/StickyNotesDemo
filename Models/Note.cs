@@ -1,13 +1,15 @@
 ﻿namespace StickyNotesDemo.Models
 {
-    internal class Note
+    public class Note
     {
         private DateTime _creationDate;
-        internal Note(string title = "", string content = "")
+        private readonly Guid _id = Guid.NewGuid();
+        public Note(string title = "", string content = "")
         {
             Title = title;
             Content = content;
         }
+        public Guid Id => _id;
         internal string Title
         {
             get; set;

@@ -1,4 +1,5 @@
 ﻿using StickyNotesDemo.Models;
+using StickyNotesDemo.Presenters;
 
 namespace StickyNotesDemo
 {
@@ -6,43 +7,46 @@ namespace StickyNotesDemo
     {
         private const string ContentPlaceholderText = "Please enter note content...";
         private const string TitlePlaceholderText = "Please enter note title...";
-        private Note _note;
 
-        public NoteDetailsForm()
+        public string Title
+        {
+            get; private set;
+        }
+        public string Content
+        {
+            get; private set;
+        }
+        public NoteDetailsFormPresenter NoteDetailsFormPresenter
+        {
+            get;
+            internal set;
+        }
+
+        public NoteDetailsForm(string title = "", string content = "")
         {
             InitializeComponent();
             contentTextEdit.Text = ContentPlaceholderText;
             contentTextEdit.ForeColor = Color.Gray;
             titleTextBox.Text = TitlePlaceholderText;
             titleTextBox.ForeColor = Color.Gray;
-        }
-
-        internal Note Note
-        {
-            get
-            {
-                _note ??= new Note();
-                return _note;
-            }
-            set
-            {
-                _note = value;
-            }
+            Title = title;
+            Content = content;
         }
 
         private void NoteDetailsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _note = new Note(titleTextBox.Text, contentTextEdit.Text);
+            Title = titleTextBox.Text;
+            Content = contentTextEdit.Text;
         }
 
         private void NoteDetailsForm_Shown(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Note.Title))
+            if (string.IsNullOrEmpty(Title))
             {
                 return;
             }
-            titleTextBox.Text = Note.Title;
-            contentTextEdit.Text = Note.Content;
+            titleTextBox.Text = Title;
+            contentTextEdit.Text = Content;
         }
 
         private void ContentTextEdit_Enter(object sender, EventArgs e)
