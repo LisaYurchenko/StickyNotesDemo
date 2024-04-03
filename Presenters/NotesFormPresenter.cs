@@ -11,21 +11,22 @@ namespace StickyNotesDemo.Presenters
         {
             _view = view;
             _repository = repository;
+            _view.SetData(repository.GetAll());
         }
 
-        public string[] CreateNote()
+        public Note CreateNote()
         {
             NoteDetailsForm noteDetailsForm = new();
             var noteDetailsFormPresenter = new NoteDetailsFormPresenter(noteDetailsForm);
             noteDetailsForm.NoteDetailsFormPresenter = noteDetailsFormPresenter;
             var note = noteDetailsFormPresenter.CreateNote();
             _repository.Add(note);
-            return new string[] { note.Title, note.CreationDate.ToString() };
+            return note;
         }
 
-        public string[]? UpdateNote(string title)
+        public Note UpdateNote(Guid id)
         {
-            var note = _repository.GetNoteByTitle(title);
+            var note = _repository.GetNoteById(id);
             if (note != null)
             {
                 NoteDetailsForm noteDetailsForm = new(note.Title, note.Content);
@@ -33,9 +34,18 @@ namespace StickyNotesDemo.Presenters
                 noteDetailsForm.NoteDetailsFormPresenter = noteDetailsFormPresenter;
                 noteDetailsFormPresenter.EditNote(ref note);
                 _repository.Update(note);
-                return new string[] { note.Title, note.CreationDate.ToString() };
+                return note;
             }
             return null;
+        }
+
+        public void DeleteNote(Guid id)
+        {
+            var note = _repository.GetNoteById(id);
+            if (note != null)
+            {
+                _repository.Remove(note);
+            }
         }
 
         public void FindItems(string text)
@@ -43,7 +53,7 @@ namespace StickyNotesDemo.Presenters
             var notes = _repository.GetNotesByTitleContent(text);
             foreach (var note in notes)
             {
-                _view.InsertItem(new string[] { note.Title, note.CreationDate.ToString() });
+                _view.InsertItem(note);
             }
         }
     }

@@ -4,22 +4,30 @@
     {
         private DateTime _creationDate;
         private readonly Guid _id = Guid.NewGuid();
+
+        public Note()
+        {
+        }
+
         public Note(string title = "", string content = "")
         {
             Title = title;
             Content = content;
         }
+
         public Guid Id => _id;
-        internal string Title
-        {
-            get; set;
-        }
-        internal string Content
+
+        public string Title
         {
             get; set;
         }
 
-        internal DateTime CreationDate
+        public string Content
+        {
+            get; set;
+        }
+
+        public DateTime CreationDate
         {
             get
             {
@@ -28,6 +36,10 @@
                     _creationDate = DateTime.Now;
                 }
                 return _creationDate;
+            }
+            set
+            {
+                _creationDate = value;
             }
         }
     }

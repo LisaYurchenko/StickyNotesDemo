@@ -1,4 +1,5 @@
-﻿using StickyNotesDemo.Presenters;
+﻿using StickyNotesDemo.Models;
+using StickyNotesDemo.Presenters;
 
 namespace StickyNotesDemo
 {
@@ -18,9 +19,8 @@ namespace StickyNotesDemo
 
         private void PictureBoxAdd_Click(object sender, EventArgs e)
         {
-            string[] noteListItem = NotesFormPresenter.CreateNote();
-
-            notesListView.Items.Add(new ListViewItem(noteListItem));
+            var note = NotesFormPresenter.CreateNote();
+            InsertItem(note);
             ResizeColumnHeaders();
         }
 
@@ -34,11 +34,6 @@ namespace StickyNotesDemo
             pictureBoxAdd.BackColor = Color.Transparent;
         }
 
-        private void PictureBoxClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void NotesForm_SizeChanged(object sender, EventArgs e)
         {
             ResizeColumnHeaders();
@@ -49,10 +44,10 @@ namespace StickyNotesDemo
             var selectedItem = notesListView.SelectedItems[0];
             var index = selectedItem.Index;
 
-            var item = NotesFormPresenter.UpdateNote(selectedItem.Text);
+            var item = NotesFormPresenter.UpdateNote(Guid.Parse(selectedItem.Tag.ToString()));
 
             notesListView.Items.RemoveAt(index);
-            InsertItem(item);
+            InsertItem(item, index);
             notesListView.Refresh();
             ResizeColumnHeaders();
         }
@@ -72,14 +67,21 @@ namespace StickyNotesDemo
             }
         }
 
-        public void InsertItem(string[]? strings, int id = -1)
+        public void InsertItem(Note note, int id = -1)
         {
-            if (id != -1)
+            var newItem = new ListViewItem(new string[] { note.Title, note.CreationDate.ToString() })
             {
-                notesListView.Items.Insert(id, new ListViewItem(strings));
-                return;
+                Tag = note.Id
+            };
+            if (id == -1)
+            {
+                notesListView.Items.Add(newItem);
             }
-            notesListView.Items.Add(new ListViewItem(strings));
+            else
+            {
+                notesListView.Items.Insert(id, newItem);
+            }
+            return;
         }
 
         private void ResizeColumnHeaders()
@@ -89,6 +91,26 @@ namespace StickyNotesDemo
                 notesListView.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.ColumnContent);
             }
             notesListView.Columns[^1].Width = -2;
+        }
+
+        public void SetData(IEnumerable<Note> notes)
+        {
+            foreach (var item in notes)
+            {
+                InsertItem(item);
+            }
+        }
+
+        private void notesListView_KeyDown(object sender, KeyEventArgs e)
+        {
+            var selectedItem = notesListView.SelectedItems[0];
+            var index = selectedItem.Index;
+
+            NotesFormPresenter.DeleteNote(Guid.Parse(selectedItem.Tag.ToString()));
+
+            notesListView.Items.RemoveAt(index);
+            notesListView.Refresh();
+            ResizeColumnHeaders();
         }
     }
 }

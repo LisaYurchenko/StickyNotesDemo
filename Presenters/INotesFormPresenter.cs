@@ -1,9 +1,12 @@
-﻿namespace StickyNotesDemo.Presenters
+﻿using StickyNotesDemo.Models;
+
+namespace StickyNotesDemo.Presenters
 {
     public interface INotesFormPresenter
     {
-        string[] CreateNote();
+        Note CreateNote();
+        void DeleteNote(Guid id);
         void FindItems(string text);
-        string[]? UpdateNote(string title);
+        Note UpdateNote(Guid id);
     }
 }

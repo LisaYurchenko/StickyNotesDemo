@@ -62,6 +62,7 @@
             notesListView.UseCompatibleStateImageBehavior = false;
             notesListView.View = View.Details;
             notesListView.DoubleClick += NotesListView_DoubleClick;
+            notesListView.KeyDown += notesListView_KeyDown;
             // 
             // colTitle
             // 

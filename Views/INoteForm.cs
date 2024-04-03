@@ -1,4 +1,5 @@
-﻿using StickyNotesDemo.Presenters;
+﻿using StickyNotesDemo.Models;
+using StickyNotesDemo.Presenters;
 
 namespace StickyNotesDemo
 {
@@ -9,6 +10,7 @@ namespace StickyNotesDemo
             set;
         }
 
-        void InsertItem(string[]? strings, int id = -1);
+        void InsertItem(Note note, int id = -1);
+        void SetData(IEnumerable<Note> notes);
     }
 }
