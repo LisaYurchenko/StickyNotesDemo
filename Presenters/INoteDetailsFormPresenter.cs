@@ -6,5 +6,6 @@ namespace StickyNotesDemo.Presenters
     {
         Note CreateNote();
         void EditNote(ref Note note);
+        void SetData(Note note);
     }
 }

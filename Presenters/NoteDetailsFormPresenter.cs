@@ -28,5 +28,11 @@ namespace StickyNotesDemo.Presenters
             note.Title = _view.Title;
             note.Content = _view.Content;
         }
+
+        public void SetData(Note note)
+        {
+           _view.Title = note.Title;
+           _view.Content = note.Content;
+        }
     }
 }

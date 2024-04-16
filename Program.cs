@@ -24,7 +24,10 @@ namespace StickyNotesDemo
 
             // Poor Man's Dependency Injection/Pure Dependency Injection, Main() is the Composition Root.
             // See https://github.com/mrts/winforms-mvp/issues/2.
-            var presenter = new NotesFormPresenter(mainView, notesRepository);
+            NoteDetailsForm noteDetailsForm = new();
+            var noteDetailsFormPresenter = new NoteDetailsFormPresenter(noteDetailsForm);
+            noteDetailsForm.NoteDetailsFormPresenter = noteDetailsFormPresenter;
+            var presenter = new NotesFormPresenter(mainView, noteDetailsFormPresenter, notesRepository);
             mainView.NotesFormPresenter = presenter;
             Application.Run(mainView);
         }

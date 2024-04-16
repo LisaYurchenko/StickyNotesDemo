@@ -9,11 +9,11 @@ namespace StickyNotesDemo
 
         public string Title
         {
-            get; private set;
+            get; set;
         }
         public string Content
         {
-            get; private set;
+            get; set;
         }
         public INoteDetailsFormPresenter NoteDetailsFormPresenter
         {

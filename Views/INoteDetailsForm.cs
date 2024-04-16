@@ -4,17 +4,17 @@ namespace StickyNotesDemo
 {
     public interface INoteDetailsForm
     {
-        string Content
+        public string Content
         {
-            get;
+            get; set;
         }
         INoteDetailsFormPresenter NoteDetailsFormPresenter
         {
             get;
         }
-        string Title
+        public string Title
         {
-            get;
+            get; set;
         }
 
         void ShowDialog();

@@ -4,7 +4,7 @@ namespace StickyNotesDemo.Models
 {
     public class NotesContext : DbContext
     {
-        public DbSet<Note> Notes
+        public virtual DbSet<Note> Notes
         {
             get; set;
         }

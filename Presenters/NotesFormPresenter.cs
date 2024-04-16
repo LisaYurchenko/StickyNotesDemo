@@ -5,21 +5,22 @@ namespace StickyNotesDemo.Presenters
     public class NotesFormPresenter : INotesFormPresenter
     {
         private readonly INoteForm _view;
+        private readonly INoteDetailsFormPresenter _noteDetailsFormPresenter;
         private readonly INotesRepository _repository;
 
-        public NotesFormPresenter(INoteForm view, INotesRepository repository)
+        public NotesFormPresenter(INoteForm view,
+            INoteDetailsFormPresenter noteDetailsFormPresenter,
+            INotesRepository repository)
         {
             _view = view;
+            _noteDetailsFormPresenter = noteDetailsFormPresenter;
             _repository = repository;
             _view.SetData(repository.GetAll());
         }
 
         public Note CreateNote()
         {
-            NoteDetailsForm noteDetailsForm = new();
-            var noteDetailsFormPresenter = new NoteDetailsFormPresenter(noteDetailsForm);
-            noteDetailsForm.NoteDetailsFormPresenter = noteDetailsFormPresenter;
-            var note = noteDetailsFormPresenter.CreateNote();
+            var note = _noteDetailsFormPresenter.CreateNote();
             _repository.Add(note);
             return note;
         }
@@ -29,10 +30,8 @@ namespace StickyNotesDemo.Presenters
             var note = _repository.GetNoteById(id);
             if (note != null)
             {
-                NoteDetailsForm noteDetailsForm = new(note.Title, note.Content);
-                var noteDetailsFormPresenter = new NoteDetailsFormPresenter(noteDetailsForm);
-                noteDetailsForm.NoteDetailsFormPresenter = noteDetailsFormPresenter;
-                noteDetailsFormPresenter.EditNote(ref note);
+                _noteDetailsFormPresenter.SetData(note);
+                _noteDetailsFormPresenter.EditNote(ref note);
                 _repository.Update(note);
                 return note;
             }
