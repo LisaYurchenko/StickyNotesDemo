@@ -5,9 +5,11 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StickyNotesDemo", "StickyNotesDemo.csproj", "{A95326AC-77AB-4FF2-9AF0-5EE6CF362729}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StickyNotesDemoTests.NUnit", "..\StickyNotesDemoTests.NUnit\StickyNotesDemoTests.NUnit.csproj", "{96C3EA89-EA2D-4347-BE9A-F38552114FB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StickyNotesDemoTests.NUnit", "StickyNotesDemoTests.NUnit\StickyNotesDemoTests.NUnit.csproj", "{29283308-A176-400C-8E52-685D5C62CABA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StickyNotesDemoTests.UIAutomation", "StickiNotesDemoTests.UIAutomation\StickyNotesDemoTests.UIAutomation.csproj", "{535BFB35-F168-4A62-99D1-EEE5F25608B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StickyNotesDemoTests.UIAutomation", "StickyNotesDemoTests.UIAutomation\StickyNotesDemoTests.UIAutomation.csproj", "{D31ED11A-A9F2-4A01-A99B-786F98614639}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StickyNotesDemoTests.UiAutomation.ScreenPlay", "StickyNotesDemoTests.UiAutomation.ScreenPlay\StickyNotesDemoTests.UiAutomation.ScreenPlay.csproj", "{95CBC058-D2FB-4C62-83F9-D255D0543C87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +21,18 @@ Global
 		{A95326AC-77AB-4FF2-9AF0-5EE6CF362729}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A95326AC-77AB-4FF2-9AF0-5EE6CF362729}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A95326AC-77AB-4FF2-9AF0-5EE6CF362729}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96C3EA89-EA2D-4347-BE9A-F38552114FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96C3EA89-EA2D-4347-BE9A-F38552114FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96C3EA89-EA2D-4347-BE9A-F38552114FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96C3EA89-EA2D-4347-BE9A-F38552114FB7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{535BFB35-F168-4A62-99D1-EEE5F25608B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{535BFB35-F168-4A62-99D1-EEE5F25608B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{535BFB35-F168-4A62-99D1-EEE5F25608B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{535BFB35-F168-4A62-99D1-EEE5F25608B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29283308-A176-400C-8E52-685D5C62CABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29283308-A176-400C-8E52-685D5C62CABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29283308-A176-400C-8E52-685D5C62CABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29283308-A176-400C-8E52-685D5C62CABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D31ED11A-A9F2-4A01-A99B-786F98614639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31ED11A-A9F2-4A01-A99B-786F98614639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31ED11A-A9F2-4A01-A99B-786F98614639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31ED11A-A9F2-4A01-A99B-786F98614639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95CBC058-D2FB-4C62-83F9-D255D0543C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95CBC058-D2FB-4C62-83F9-D255D0543C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95CBC058-D2FB-4C62-83F9-D255D0543C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95CBC058-D2FB-4C62-83F9-D255D0543C87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,6 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="StickiNotesDemoTests.UIAutomation\**" />
+    <Compile Remove="StickyNotesDemoTests.NUnit\**" />
+    <Compile Remove="StickyNotesDemoTests.UiAutomation.ScreenPlay\**" />
+    <Compile Remove="StickyNotesDemoTests.UIAutomation\**" />
+    <EmbeddedResource Remove="StickiNotesDemoTests.UIAutomation\**" />
+    <EmbeddedResource Remove="StickyNotesDemoTests.NUnit\**" />
+    <EmbeddedResource Remove="StickyNotesDemoTests.UiAutomation.ScreenPlay\**" />
+    <EmbeddedResource Remove="StickyNotesDemoTests.UIAutomation\**" />
+    <None Remove="StickiNotesDemoTests.UIAutomation\**" />
+    <None Remove="StickyNotesDemoTests.NUnit\**" />
+    <None Remove="StickyNotesDemoTests.UiAutomation.ScreenPlay\**" />
+    <None Remove="StickyNotesDemoTests.UIAutomation\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="7.0.17" />
     <PackageReference Include="SQLite" Version="3.13.0" />
